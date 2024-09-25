@@ -11,7 +11,7 @@ app.post("/signup", async (req, res) => {
     const obj = await user.save();
     res.send("user added successfully");
   } catch (error) {
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal Server Error "+error.message);
   }
 });
 
@@ -40,11 +40,12 @@ app.patch("/user", async (req, res) => {
     const data = req.body;
     const user = await User.findByIdAndUpdate({ _id: data._id }, data, {
       returnDocument: "after",
+      runValidators:true
     });
     if (user) res.send("user updated");
     else res.status(404).send("No user found");
   } catch (error) {
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal  Error"+error.message);
   }
 });
 

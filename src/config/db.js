@@ -4,7 +4,7 @@ const { ModuleDetectionKind } = require("typescript");
 const connectDb = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://supersecretpass:supersecretpass@namastenode.bsqkb.mongodb.net/"
+      "mongodb+srv://supersecretpass:supersecretpass@namastenode.bsqkb.mongodb.net/DevTinder"
     );
     console.log("Database connected successfully!");
   } catch (error) {
